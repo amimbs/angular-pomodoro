@@ -49,10 +49,10 @@ export class TimerComponent implements AfterViewInit {
       this.timePassed++;
       this.timeLeft = this.TIME_LIMIT - this.timePassed;
 
-      // The time left label is updated
-      // this.baseTimerLabel.nativeElement.innerHTML = this.formatTimeLeft(this.timeLeft);
-
-      //this.setCircleDasharray();
+      if(this.timeLeft <= 0) { // Checks if timeLeft is less than or equal to 0
+        clearInterval(this.timerInterval); // Stops the timer
+        this.timeLeft = 0; // To ensure it doesn't go to negative
+      }
     }, 1000);
   }
 
@@ -61,25 +61,5 @@ export class TimerComponent implements AfterViewInit {
     let seconds = time % 60;
     return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
   };
-
-  // calculateTimeFraction() {
-  //   return this.timeLeft / this.TIME_LIMIT;
-  // }
-
-  // setCircleDasharray() {
-  //   const circleDasharray = `${(this.calculateTimeFraction() * this.FULL_DASH_ARRAY).toFixed(0)} 283`;
-  //   this.baseTimerPathRemaining.nativeElement.setAttribute("stroke-dasharray", circleDasharray);
-  // }
-
-  // setCircleDasharray() {
-  //   // it's not entering tyhe if conditional
-  //   if (this.baseTimerPathRemaining && this.baseTimerPathRemaining.nativeElement) {
-
-  //     console.log('hi')
-  //     const circleDasharray = `${(this.calculateTimeFraction() * this.FULL_DASH_ARRAY).toFixed(0)} 283`;
-  //     this.baseTimerPathRemaining.nativeElement.setAttribute("stroke-dasharray", circleDasharray);
-  //     this.cd.detectChanges();  // manually trigger change detection here
-  //   } else ( console.log('goddammit wtf'))
-  // }
 
 }

@@ -46,4 +46,9 @@ export class TimerComponent implements AfterViewInit {
     const seconds = time % 60;
     return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
   }
+
+  // A method that calculates the timeLeft as a percentage of the total time
+  calculatePercentage() {
+    return (this.timeLeft / this.TIME_LIMIT) * 100;
+  }
 }

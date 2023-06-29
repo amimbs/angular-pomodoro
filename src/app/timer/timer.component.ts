@@ -1,9 +1,15 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
-  styleUrls: ['./timer.component.scss']
+  styleUrls: ['./timer.component.scss'],
 })
 export class TimerComponent implements AfterViewInit {
   TIME_LIMIT = 20;
@@ -12,11 +18,10 @@ export class TimerComponent implements AfterViewInit {
   public timerInterval: number | undefined;
 
   @ViewChild('baseTimerLabel', { static: false }) baseTimerLabel!: ElementRef;
-  @ViewChild("baseTimerPathRemaining") baseTimerPathRemaining!: ElementRef<SVGPathElement>;
+  @ViewChild('baseTimerPathRemaining')
+  baseTimerPathRemaining!: ElementRef<SVGPathElement>;
 
-  constructor(private cd: ChangeDetectorRef) {
-
-  }
+  constructor(private cd: ChangeDetectorRef) {}
 
   ngAfterViewInit(): void {
     this.startTimer();
@@ -28,7 +33,8 @@ export class TimerComponent implements AfterViewInit {
       this.timePassed++;
       this.timeLeft = this.TIME_LIMIT - this.timePassed;
 
-      if(this.timeLeft <= 0) { // Checks if timeLeft is less than or equal to 0
+      if (this.timeLeft <= 0) {
+        // Checks if timeLeft is less than or equal to 0
         window.clearInterval(this.timerInterval); // Stops the timer
         this.timeLeft = 0; // To ensure it doesn't go to negative
       }
@@ -36,9 +42,8 @@ export class TimerComponent implements AfterViewInit {
   }
 
   formatTimeLeft(time: number) {
-    const minutes = Math.floor(time / 60)
-     const seconds = time % 60;
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
     return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
   }
-
 }

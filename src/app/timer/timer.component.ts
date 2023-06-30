@@ -31,8 +31,13 @@ export class TimerComponent {
   }
 
   startTimer() {
+    // Clear any existing interval
+    if (this.timerInterval) {
+      window.clearInterval(this.timerInterval);
+    }
+
+    this.isTimerRunning = true;
     this.timerInterval = window.setInterval(() => {
-      this.isTimerRunning = true;
       // The amount of time passed increments by one
       this.timePassed++;
       this.timeLeft = this.TIME_LIMIT - this.timePassed;

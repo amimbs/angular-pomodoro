@@ -1,6 +1,9 @@
 <div class="base-timer">
-    <mat-progress-bar mode="determinate" [value]="calculatePercentage()" color="warn"></mat-progress-bar>
-    <span id="base-timer-label" class="base-timer__label">
-        {{formatTimeLeft(timeLeft)}}
-    </span>
+  <mat-progress-bar
+    mode="determinate"
+    [value]="calculatePercentage()"
+    color="warn"></mat-progress-bar>
+  <span id="base-timer-label" class="base-timer__label">
+    {{ formatTimeLeft(timeLeft) }}
+  </span>
 </div>

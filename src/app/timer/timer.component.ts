@@ -1,6 +1,6 @@
 import {
   // AfterViewInit,
-  ChangeDetectorRef,
+  // ChangeDetectorRef,
   Component,
   ElementRef,
   ViewChild,
@@ -16,12 +16,13 @@ export class TimerComponent {
   public timePassed = 0;
   public timeLeft = this.TIME_LIMIT;
   public timerInterval: number | undefined;
+  public isTimerRunning = false;
 
   @ViewChild('baseTimerLabel', { static: false }) baseTimerLabel!: ElementRef;
   @ViewChild('baseTimerPathRemaining')
   baseTimerPathRemaining!: ElementRef<SVGPathElement>;
 
-  constructor(private cd: ChangeDetectorRef) {}
+  // constructor(private cd: ChangeDetectorRef) {}
 
   // ngAfterViewInit(): void {
   //   // this.startTimer();

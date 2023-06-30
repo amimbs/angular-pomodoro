@@ -1,14 +1,16 @@
 <div class="container">
   <div class="base-timer">
+    <button
+      class="base-timer__label"
+      mat-fab
+      color="warn"
+      aria-label="Example icon button with a delete icon"
+      (click)="toggleTimer()">
+      {{ formatTimeLeft(timeLeft) }}
+    </button>
     <mat-progress-bar
       mode="determinate"
       [value]="calculatePercentage()"
       color="warn"></mat-progress-bar>
-    <span
-      id="base-timer-label"
-      class="base-timer__label"
-      (click)="startTimer()">
-      {{ formatTimeLeft(timeLeft) }}
-    </span>
   </div>
 </div>

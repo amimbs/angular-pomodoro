@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimerComponent } from './timer/timer.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [AppComponent, TimerComponent],
@@ -14,6 +15,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatProgressBarModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

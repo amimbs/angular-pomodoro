@@ -2,8 +2,8 @@ import {
   // AfterViewInit,
   // ChangeDetectorRef,
   Component,
-  ElementRef,
-  ViewChild,
+  // ElementRef,
+  // ViewChild,
 } from '@angular/core';
 
 @Component({
@@ -18,18 +18,21 @@ export class TimerComponent {
   public timerInterval: number | undefined;
   public isTimerRunning = false;
 
-  @ViewChild('baseTimerLabel', { static: false }) baseTimerLabel!: ElementRef;
-  @ViewChild('baseTimerPathRemaining')
-  baseTimerPathRemaining!: ElementRef<SVGPathElement>;
-
   // constructor(private cd: ChangeDetectorRef) {}
 
   // ngAfterViewInit(): void {
   //   // this.startTimer();
   // }
 
+  toggleTimer() {
+    if (!this.isTimerRunning) {
+      this.startTimer();
+    } else this.pauseTimer();
+  }
+
   startTimer() {
     this.timerInterval = window.setInterval(() => {
+      this.isTimerRunning = true;
       // The amount of time passed increments by one
       this.timePassed++;
       this.timeLeft = this.TIME_LIMIT - this.timePassed;
@@ -40,6 +43,13 @@ export class TimerComponent {
         this.timeLeft = 0; // To ensure it doesn't go to negative
       }
     }, 1000);
+  }
+
+  pauseTimer() {
+    this.isTimerRunning = false;
+    if (this.timerInterval) {
+      window.clearInterval(this.timerInterval);
+    }
   }
 
   formatTimeLeft(time: number) {

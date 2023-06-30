@@ -1,6 +1,6 @@
 import {
-  AfterViewInit,
-  ChangeDetectorRef,
+  // AfterViewInit,
+  // ChangeDetectorRef,
   Component,
   ElementRef,
   ViewChild,
@@ -11,21 +11,22 @@ import {
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss'],
 })
-export class TimerComponent implements AfterViewInit {
+export class TimerComponent {
   TIME_LIMIT = 20;
   public timePassed = 0;
   public timeLeft = this.TIME_LIMIT;
   public timerInterval: number | undefined;
+  public isTimerRunning = false;
 
   @ViewChild('baseTimerLabel', { static: false }) baseTimerLabel!: ElementRef;
   @ViewChild('baseTimerPathRemaining')
   baseTimerPathRemaining!: ElementRef<SVGPathElement>;
 
-  constructor(private cd: ChangeDetectorRef) {}
+  // constructor(private cd: ChangeDetectorRef) {}
 
-  ngAfterViewInit(): void {
-    this.startTimer();
-  }
+  // ngAfterViewInit(): void {
+  //   // this.startTimer();
+  // }
 
   startTimer() {
     this.timerInterval = window.setInterval(() => {
@@ -45,5 +46,10 @@ export class TimerComponent implements AfterViewInit {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
     return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+  }
+
+  // A method that calculates the timeLeft as a percentage of the total time
+  calculatePercentage() {
+    return (this.timeLeft / this.TIME_LIMIT) * 100;
   }
 }

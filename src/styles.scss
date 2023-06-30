@@ -1,4 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* For devices smaller than 600px */
+@media screen and (max-width: 600px) {
+    .base-timer {
+        height: 200px;
+        width: 200px;
+
+        .base-timer__label {
+            width: 200px;
+            height: 200px;
+            font-size: 32px;
+        }
+    }
+}
+
+/* For devices smaller than 1000px */
+@media screen and (max-width: 1000px) {
+    .base-timer {
+        height: 250px;
+        width: 250px;
+
+        .base-timer__label {
+            width: 250px;
+            height: 250px;
+            font-size: 40px;
+        }
+    }
+}

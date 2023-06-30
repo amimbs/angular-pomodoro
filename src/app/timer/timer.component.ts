@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  // AfterViewInit,
   ChangeDetectorRef,
   Component,
   ElementRef,
@@ -11,7 +11,7 @@ import {
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss'],
 })
-export class TimerComponent implements AfterViewInit {
+export class TimerComponent {
   TIME_LIMIT = 20;
   public timePassed = 0;
   public timeLeft = this.TIME_LIMIT;
@@ -23,9 +23,9 @@ export class TimerComponent implements AfterViewInit {
 
   constructor(private cd: ChangeDetectorRef) {}
 
-  ngAfterViewInit(): void {
-    this.startTimer();
-  }
+  // ngAfterViewInit(): void {
+  //   // this.startTimer();
+  // }
 
   startTimer() {
     this.timerInterval = window.setInterval(() => {

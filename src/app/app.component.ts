@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pomodoro-app';
+  TIME_LIMIT: number = 0;
 }

@@ -3,7 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; // This makes sure that the container will always fill the screen vertically
+    // height: 100vh; // This makes sure that the container will always fill the screen vertically
+    // todo 100vh is currently messing up the window, 
     .base-timer {
         .base-timer__label {
             font-size: 3.125rem; // Equals to 50px

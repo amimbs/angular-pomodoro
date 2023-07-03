@@ -1,0 +1,15 @@
+<!-- <mat-form-field>
+  <input
+    type="number"
+    class="form-control"
+    matInput
+    name="value"
+    placeholder="Slab" />
+</mat-form-field> -->
+
+
+<div class="wrapper">
+    <button class="plusminus" (click)="handleMinus()">-</button>
+    <input type="number" class="num" [(ngModel)]="localTimeLimit " />
+    <button class="plusminus" (click)="handlePlus()">+</button>
+</div>

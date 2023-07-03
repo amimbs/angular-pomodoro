@@ -1,6 +1,7 @@
 <header></header>
 <body>
   <section>
-    <app-timer></app-timer>
+    <app-time-counter (TIME_LIMIT)="TIME_LIMIT = $event"></app-time-counter>
+    <app-timer [TIME_LIMIT]="TIME_LIMIT"></app-timer>
   </section>
 </body>

@@ -2,6 +2,8 @@ import {
   // AfterViewInit,
   // ChangeDetectorRef,
   Component,
+  Input,
+  SimpleChanges
   // ElementRef,
   // ViewChild,
 } from '@angular/core';
@@ -12,7 +14,8 @@ import {
   styleUrls: ['./timer.component.scss'],
 })
 export class TimerComponent {
-  TIME_LIMIT = 20;
+  // TIME_LIMIT = 20;
+  @Input() TIME_LIMIT: number = 0;
   public timePassed = 0;
   public timeLeft = this.TIME_LIMIT;
   public timerInterval: number | undefined;
@@ -23,6 +26,12 @@ export class TimerComponent {
   // ngAfterViewInit(): void {
   //   // this.startTimer();
   // }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['TIME_LIMIT'] && changes['TIME_LIMIT'].currentValue) {
+      this.timeLeft = this.TIME_LIMIT;
+    }
+  }
 
   toggleTimer() {
     if (!this.isTimerRunning) {

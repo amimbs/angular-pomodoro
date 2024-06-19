@@ -53,6 +53,9 @@ export class TimerComponent implements OnInit {
     // end
     if (this.remainingTime < 0){
       clearInterval(this.timerLoop);
+      this.semiCircles[0].style.display = 'none';
+      this.semiCircles[1].style.display = 'none';
+      this.semiCircles[2].style.display = 'none';
     }
   }
 }

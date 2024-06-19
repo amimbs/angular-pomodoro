@@ -41,7 +41,7 @@ export class TimerComponent implements OnInit {
     if (this.angle > 180) {
       this.semiCircles[2].style.display = 'none';
       this.semiCircles[0].style.transform = 'rotate(180deg)';
-      this.semiCircles[1].style.transform = `rotate(${this.angle - 180}deg)`;
+      this.semiCircles[1].style.transform = `rotate(${this.angle}deg)`;
     } else {
       this.semiCircles[2].style.display = 'block';
       this.semiCircles[0].style.transform = `rotate(${this.angle}deg)`;
@@ -51,5 +51,8 @@ export class TimerComponent implements OnInit {
     // timer
     // 5 sec conditional
     // end
+    if (this.remainingTime < 0){
+      clearInterval(this.timerLoop);
+    }
   }
 }

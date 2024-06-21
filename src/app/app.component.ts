@@ -12,4 +12,10 @@ import { TimerClockComponent } from './features/timer-clock/timer-clock.componen
 })
 export class AppComponent {
   title = 'pomodoro-app';
+  remainingTime!: number;
+
+  onRemainingTimeEvent(remainingTime: number) {
+    this.remainingTime = remainingTime;
+    // console.log('Remaining Time:', remainingTime);
+  }
 }

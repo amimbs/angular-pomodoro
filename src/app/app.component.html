@@ -1,6 +1,12 @@
-<main class="main-container center">
-  <app-timer class="circle-container center"></app-timer>
-  <app-timer-clock style="z-index: 9999;"></app-timer-clock>
+<main>
+  <div class="main-container center">
+    <app-timer class="circle-container center" (remainingTimeEvent)="onRemainingTimeEvent($event)"></app-timer>
+    <app-timer-clock class="timer-container center" [remainingTime]="remainingTime"></app-timer-clock>
+  </div>
+
+
+  
+
 </main>
 
 <router-outlet />

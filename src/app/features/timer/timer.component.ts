@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+// import { TimerClockComponent } from '../timer-clock/timer-clock.component';
 
 @Component({
   selector: 'app-timer',
@@ -23,6 +24,8 @@ export class TimerComponent implements OnInit {
   timerLoop: any;
   currentTime: number = Date.now();
   remainingTime?: number;
+  @Output() remainingTimeEvent = new EventEmitter<number>();
+
   angle?: any;
 
   ngOnInit(): void {
@@ -35,6 +38,7 @@ export class TimerComponent implements OnInit {
   countDownTimer() {
     this.currentTime = Date.now();
     this.remainingTime = this.futureTime - this.currentTime;
+    this.remainingTimeEvent.emit(this.remainingTime);
     this.angle = (this.remainingTime / this.setTime) * 360;
 
     // progress indicator

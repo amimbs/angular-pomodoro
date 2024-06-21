@@ -12,7 +12,15 @@
         z-index: 1;
         overflow: hidden;
     }
+
+    .timer-container {
+        width: 330px;
+        height: 200px;
+        z-index: 6;
+    }
 }
+
+
 
 // hover for testing
 // .main-container:hover {

@@ -19,13 +19,19 @@ export class TimerClockComponent implements OnChanges{
     for (const inputRemainingTime in changes) {
        this.remainingTimeValues = changes[inputRemainingTime];
       // console.log(this.remainingTimeValues)
-      this.formatRemainingTime(this.remainingTimeValues.currentValue);
+      if (this.remainingTimeValues.currentValue >= 0){
+        this.formatRemainingTime(this.remainingTimeValues.currentValue);
+      } else {
+        this.hrs = '00';
+        this.mins = '00';
+        this.secs = '00';
+      }
     }
   }
 
   formatRemainingTime(remainingTimeValues: any): void {
     this.hrs = Math.floor((remainingTimeValues / (1000 * 60 * 60)) % 24);
     this.mins = Math.floor((remainingTimeValues / (1000 * 60 )) % 60);
-    this.secs = Math.floor((remainingTimeValues / (1000)) % 24);    
+    this.secs = Math.floor((remainingTimeValues / (1000)) % 24);
   }
 }

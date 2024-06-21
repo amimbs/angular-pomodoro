@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-timer-clock',
@@ -8,17 +8,13 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core
   styleUrls: ['./timer-clock.component.scss']
 })
 
-export class TimerClockComponent implements OnInit, OnChanges{
+export class TimerClockComponent implements OnChanges{
   @Input() remainingTime!: number;
-  timer: any;
+  @ViewChild('timer', { static: true }) timer!: ElementRef;
   hrs: string = '00';
   mins: string = '00';
   secs: string = '00';
   remainingTimeValues: any;
-
-  ngOnInit(): void {
-    this.timer = document.querySelector('.timer');
-  }
 
   ngOnChanges(changes: SimpleChanges): void {
     for (const inputRemainingTime in changes) {
@@ -27,12 +23,12 @@ export class TimerClockComponent implements OnInit, OnChanges{
         this.formatRemainingTime(this.remainingTimeValues.currentValue);
       } else if (this.remainingTimeValues.currentValue <= 6000 && this.remainingTimeValues.currentValue > 0 ){
         this.formatRemainingTime(this.remainingTimeValues.currentValue);
-        this.timer.style.color = 'red'
+        this.timer.nativeElement.style.color = 'red';
       } else {
         this.hrs = '00';
         this.mins = '00';
         this.secs = '00';
-        this.timer.style.color = 'black'
+        this.timer.nativeElement.style.color = 'black';
       }
     }
   }

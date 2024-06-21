@@ -30,8 +30,8 @@ export class TimerClockComponent implements OnChanges{
   }
 
   formatRemainingTime(remainingTimeValues: any): void {
-    this.hrs = Math.floor((remainingTimeValues / (1000 * 60 * 60)) % 24);
-    this.mins = Math.floor((remainingTimeValues / (1000 * 60 )) % 60);
-    this.secs = Math.floor((remainingTimeValues / (1000)) % 24);
+    this.hrs = Math.floor((remainingTimeValues / (1000 * 60 * 60)) % 24).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
+    this.mins = Math.floor((remainingTimeValues / (1000 * 60 )) % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
+    this.secs = Math.floor((remainingTimeValues / (1000)) % 24).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
   }
 }

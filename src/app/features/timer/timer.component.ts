@@ -30,8 +30,8 @@ export class TimerComponent implements OnInit {
 
   ngOnInit(): void {
     this.semiCircles = document.querySelectorAll('.semiCircle');
-    this.countDownTimer = this.countDownTimer.bind(this); // Bind the context
-    this.timerLoop = setInterval(this.countDownTimer); // Set interval for 1 second
+    this.countDownTimer = this.countDownTimer.bind(this);
+    this.timerLoop = setInterval(this.countDownTimer);
     this.countDownTimer();
   }
 
@@ -52,8 +52,12 @@ export class TimerComponent implements OnInit {
       this.semiCircles[1].style.transform = `rotate(${this.angle}deg)`;
     }
 
-    // timer
     // 5 sec conditional
+    if (this.remainingTime <= 6000) {
+      this.semiCircles[0].style.backgroundColor = 'red';
+      this.semiCircles[1].style.backgroundColor = 'red';
+    }
+
     // end
     if (this.remainingTime < 0){
       clearInterval(this.timerLoop);

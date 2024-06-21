@@ -13,7 +13,6 @@
 }
 
 .semiCircle:nth-child(2) {
-  // background-color: red;
   background-color: #088b8b;
 
   z-index: 3;
@@ -22,7 +21,6 @@
 .semiCircle:nth-child(3) {
   background-color: #ddd;
   z-index: 4;
-  // display: none;
 }
 
 .outermostCircle {
@@ -31,5 +29,4 @@
   background-color: white;
   border-radius: 50%;
   z-index: 5;
-  // display: none;
 }
